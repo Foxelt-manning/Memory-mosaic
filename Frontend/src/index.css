@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Custom design variables */
+@theme {
+  --color-primary: #7c3aed;
+  --color-primary-dark: #5b21b6;
+  --color-accent: #f59e0b;
+  --color-cream: #fff7ed;
+}
+
+/* Global element styles */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply min-h-screen bg-blue-700 text-slate-900;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+/* Reusable classes */
+@layer components {
+  .page-container {
+    @apply mx-auto w-full max-w-6xl px-4 py-6;
+  }
+
+  .card {
+    @apply rounded-2xl bg-white p-5 shadow-lg;
+  }
+
+  .btn-primary {
+    @apply rounded-xl bg-violet-600 px-5 py-3 font-semibold text-white;
+    @apply transition duration-200 hover:bg-violet-700 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply rounded-xl border border-violet-600 px-5 py-3;
+    @apply font-semibold text-violet-600 transition hover:bg-violet-50;
+  }
+
+  .form-input {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-4 py-3;
+    @apply outline-none transition focus:border-violet-500 focus:ring-2;
+    @apply focus:ring-violet-200;
+  }
+}
+
+/* Speeding-letter animation */
+@keyframes letter-arrival {
+  0% {
+    opacity: 0;
+    transform: translateX(-120vw) rotate(-15deg) scale(0.5);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateX(20px) rotate(3deg) scale(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0) scale(1);
+  }
+}
+
+.letter-arrival {
+  animation: letter-arrival 1.2s ease-out forwards;
+}
