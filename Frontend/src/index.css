@@ -15,7 +15,7 @@
   }
 
   body {
-    @apply min-h-screen bg-blue-700 text-slate-900;
+    @apply min-h-screen  text-slate-900;
     margin: 0;
     font-family: Arial, sans-serif;
   }
@@ -74,4 +74,194 @@
 
 .letter-arrival {
   animation: letter-arrival 1.2s ease-out forwards;
+  
+}
+/* Not Found page animations */
+
+.not-found-glow {
+  position: absolute;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.25;
+  animation: glow-pulse 5s ease-in-out infinite;
+}
+
+.glow-one {
+  top: -7rem;
+  left: -7rem;
+  background: #9333ea;
+}
+
+.glow-two {
+  right: -7rem;
+  bottom: -7rem;
+  background: #ec4899;
+  animation-delay: 1.5s;
+}
+
+.letter-container {
+  position: relative;
+  width: 190px;
+  height: 110px;
+}
+
+.flying-letter {
+  position: absolute;
+  top: 15px;
+  left: 55px;
+  width: 100px;
+  height: 70px;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  box-shadow: 0 15px 40px rgba(236, 72, 153, 0.35);
+  animation: fly-letter 2.5s ease-in-out infinite;
+}
+
+.letter-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 47px solid transparent;
+  border-right: 47px solid transparent;
+  border-top: 35px solid rgba(255, 255, 255, 0.85);
+}
+
+.letter-heart {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  color: white;
+  font-size: 18px;
+  transform: translateX(-50%);
+  animation: heart-beat 1.2s ease-in-out infinite;
+}
+
+.speed-line {
+  position: absolute;
+  left: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(to left, #f472b6, transparent);
+  animation: speed-line 1.2s ease-in-out infinite;
+}
+
+.speed-line-one {
+  top: 30px;
+  width: 65px;
+}
+
+.speed-line-two {
+  top: 52px;
+  width: 45px;
+  animation-delay: 0.2s;
+}
+
+.speed-line-three {
+  top: 74px;
+  width: 75px;
+  animation-delay: 0.4s;
+}
+
+.floating-shape {
+  position: absolute;
+  color: rgba(244, 114, 182, 0.4);
+  font-size: 2rem;
+  animation: float-shape 6s ease-in-out infinite;
+}
+
+.shape-one {
+  top: 18%;
+  left: 12%;
+}
+
+.shape-two {
+  top: 25%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.shape-three {
+  bottom: 20%;
+  left: 18%;
+  animation-delay: 2s;
+}
+
+.shape-four {
+  right: 12%;
+  bottom: 15%;
+  animation-delay: 3s;
+}
+
+@keyframes fly-letter {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(4deg);
+  }
+}
+
+@keyframes speed-line {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateX(20px) scaleX(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(0) scaleX(1);
+  }
+}
+
+@keyframes heart-beat {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.3);
+  }
+}
+
+@keyframes float-shape {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(15deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.35;
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flying-letter,
+  .letter-heart,
+  .speed-line,
+  .floating-shape,
+  .not-found-glow {
+    animation: none;
+  }
 }
