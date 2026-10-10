@@ -1,28 +1,23 @@
 import "dotenv/config"
-import express from "express"
-import cors from "cors"
-
-const app = express()
-
-app.use(cors({
-  origin: process.env.CLIENT_URL,
-}
-));
-
-
-app.use(express.json());
-
-
-app.get("/api/health",(req,res) =>{
-    res.status(200).json({
-    success:     true,
-    message:     "Memory Mosaic is up and running",
-    environment: process.env.NODE_ENV
-    });
-});
-
+import app from './src/app.js';
+import connectDB from "./src/config/db.js"
 
 const PORT = process.env.PORT;
-app.listen(PORT, ()=>{
- console.log(`Server running successfully at http://localhost:${PORT}`)
-})
+
+
+const startServer = async() => {
+  try {
+    await connectDB();
+
+    app.listen(PORT,()=>{
+      console.log(`Server is running at https:localhost:${PORT}`)
+    })
+
+    
+  } catch (error) {
+    console.log(`Server statup failed due to error:${error.message} `)
+    process.exit(1);
+  }
+}
+
+startServer();
