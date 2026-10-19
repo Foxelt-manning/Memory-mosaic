@@ -1,5 +1,23 @@
 import crypto from "crypto";
 import Mosaic from "../models/Mosaic.js";
+import cloudinary from "../config/cloudinary.js";
+
+const uploadImage =async(fileBuffer) =>{
+    return new Promise((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+            {
+                folder: "memory-mosaic",
+                resource_type: "auto",
+            },
+            (error, result) => {
+                if (error) reject(error);
+                else resolve(result);
+            }
+        );
+
+        stream.end(fileBuffer);
+    })
+}
 
 export const createMosaic = async (req, res) => {
     try{
@@ -70,12 +88,12 @@ export const getMosaic = async (req, res) =>{
 
 export const addContribution = async (req, res) => {
     try{
-        const {contributorName, message, mediaUrl, type} = req.body;
+        const {contributorName, message= ""} = req.body;
         
-        if(!contributorName || (!message && !mediaUrl)){
+        if(!contributorName || (!message && !req.file)){
             return res.status(400).json({
                 success: false,
-                message: "Please provide all required fields"
+                message: "Contributor name and either a message or a media file are required"
             });
         }
 
@@ -86,6 +104,15 @@ export const addContribution = async (req, res) => {
                 success: false,
                 message: "Mosaic not found"
             });
+        }
+
+        let mediaUrl = "";
+        let type = "";
+
+        if(req.file){
+            const uploadResult = await uploadImage(req.file.buffer);
+            mediaUrl = uploadResult.secure_url;
+            type = req.file.mimetype.startsWith("image/") ? "image" : "video";
         }
 
         mosaic.contributions.push({

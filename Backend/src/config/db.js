@@ -6,4 +6,4 @@ const connectDB = async() =>{
   console.log(`Memory mosaic database connected successfully @ ${connection.connection.host}`)
 }
 
-export default connectDB;
+export default connectDB; 
