@@ -470,7 +470,7 @@ function MosaicContribution() {
               </button>
             <a
                     href={`/mosaic/${sharedCode}/view`}
-                    className="rounded-full bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-700"
+                      className="mt-5 w-full rounded-xl bg-violet-600 px-6 py-3.5 font-semibold text-white transition hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
                     >
                     View presentation
             </a>
