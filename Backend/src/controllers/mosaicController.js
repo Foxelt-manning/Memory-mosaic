@@ -107,7 +107,7 @@ export const addContribution = async (req, res) => {
         }
 
         let mediaUrl = "";
-        let type = "";
+        let type = "text";
 
         if(req.file){
             const uploadResult = await uploadImage(req.file.buffer);
