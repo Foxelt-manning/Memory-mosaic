@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createMosaic } from "../services/api.js";
-import { saveMosaic } from "../utils/mosaicStorage.js";
+import { saveMosaic } from "../services/mosaicStorage.js";
 
 const initialForm = {
   title: "",

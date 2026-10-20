@@ -5,7 +5,7 @@ import {
   getMosaic,
 } from "../services/api.js";
 
-import { saveMosaic } from "../utils/mosaicStorage.js";
+import { saveMosaic } from "../services/mosaicStorage.js";
 
 function MosaicContribution() {
   const { sharedCode } = useParams();
@@ -473,14 +473,14 @@ saveMosaic(data.mosaic, "visitor");
                   ? "Adding your memory..."
                   : "Add memory to mosaic"}
               </button>
+            </form>
+          </aside>
             <a
                     href={`/mosaic/${sharedCode}/view`}
-                      className="mt-5 my-4 w-full rounded-xl bg-violet-600 px-6 py-3.5 font-semibold text-white transition hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
+                      className="mt-5 py-3.5 text-center w-full rounded-xl bg-violet-600  py-3.5 font-semibold text-white transition hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
                     >
                     View presentation
             </a>
-            </form>
-          </aside>
         </div>
       </section>
     </main>

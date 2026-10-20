@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   getSavedMosaics,
   removeSavedMosaic,
-} from "../utils/mosaicStorage.js";
+} from "../services/mosaicStorage.js";
 
 function RecentMosaics() {
   const [mosaics, setMosaics] = useState(
