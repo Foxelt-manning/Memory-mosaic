@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import CreateOccasion from "./pages/CreateOccasion.jsx";
 import OccasionPage from "./pages/OccasionPage.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import MosaicContribution from "./pages/MosaicContribution.jsx";
 const App = () => {
   return (
     <Routes>
@@ -11,6 +12,7 @@ const App = () => {
       <Route path="/create" Component={CreateOccasion} />
       <Route path="/occasion" Component={OccasionPage} />
       <Route path="*" Component={NotFound} />
+      <Route path="/mosaic/:sharedCode" Component={MosaicContribution} />
     </Routes>
   )
 }
