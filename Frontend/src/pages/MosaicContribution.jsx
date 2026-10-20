@@ -198,6 +198,13 @@ function MosaicContribution() {
       </nav>
 
       <section className="relative z-10 mx-auto max-w-6xl">
+
+                    <a
+                    href={`/mosaic/${sharedCode}/view`}
+                    className="rounded-full bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-700"
+                    >
+                    View presentation
+            </a>
         <header className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-violet-700 via-purple-700 to-rose-500 px-6 py-12 text-white shadow-2xl shadow-violet-200 sm:px-12 sm:py-16">
           <div className="relative z-10 max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-violet-200">
@@ -462,6 +469,12 @@ function MosaicContribution() {
                   : "Add memory to mosaic"}
               </button>
             </form>
+            <a
+                    href={`/mosaic/${sharedCode}/view`}
+                    className="rounded-full bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-700"
+                    >
+                    View presentation
+            </a>
           </aside>
         </div>
       </section>

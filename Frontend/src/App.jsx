@@ -1,10 +1,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+
+
 import Home from "./pages/Home.jsx";
 import CreateOccasion from "./pages/CreateOccasion.jsx";
 import OccasionPage from "./pages/OccasionPage.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import MosaicContribution from "./pages/MosaicContribution.jsx";
+import MosaicViewer from "./pages/MosaicViewer.jsx";
+
+
+
 const App = () => {
   return (
     <Routes>
@@ -13,6 +19,10 @@ const App = () => {
       <Route path="/occasion" Component={OccasionPage} />
       <Route path="*" Component={NotFound} />
       <Route path="/mosaic/:sharedCode" Component={MosaicContribution} />
+      <Route
+           path="/mosaic/:sharedCode/view"
+          Component={MosaicViewer}
+      />
     </Routes>
   )
 }
