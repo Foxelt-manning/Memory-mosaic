@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-  
-  
+import RecentMosaics from '../components/RecentMosaics.jsx';
   
     const Home = () => {
   const occasions = [
@@ -95,7 +94,7 @@ import { Link } from 'react-router-dom';
           </div>
         </div>
       </section>
-
+        <RecentMosaics />
       {/* How it works */}
       <section
         id="how-it-works"

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createMosaic } from "../services/api.js";
+import { saveMosaic } from "../utils/mosaicStorage.js";
 
 const initialForm = {
   title: "",
@@ -31,8 +32,11 @@ function CreateOccasion() {
     setError("");
 
     try {
-      const data = await createMosaic(formData);
-      setCreatedMosaic(data.mosaic);
+     const data = await createMosaic(formData);
+
+setCreatedMosaic(data.mosaic);
+
+saveMosaic(data.mosaic, "creator");
     } catch (error) {
       setError(error.message);
     } finally {

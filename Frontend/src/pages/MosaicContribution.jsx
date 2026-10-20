@@ -5,6 +5,8 @@ import {
   getMosaic,
 } from "../services/api.js";
 
+import { saveMosaic } from "../utils/mosaicStorage.js";
+
 function MosaicContribution() {
   const { sharedCode } = useParams();
 
@@ -28,7 +30,9 @@ function MosaicContribution() {
 
         const data = await getMosaic(sharedCode);
 
-        setMosaic(data.mosaic);
+setMosaic(data.mosaic);
+
+saveMosaic(data.mosaic, "visitor");
       } catch (error) {
         setError(error.message);
       } finally {
@@ -130,8 +134,9 @@ function MosaicContribution() {
       setContributorName("");
       setMessage("");
       removeMedia();
-
+      saveMosaic(mosaic, "contributor");
       setSuccess("Your memory has been added successfully.");
+
     } catch (error) {
       setError(error.message);
     } finally {
